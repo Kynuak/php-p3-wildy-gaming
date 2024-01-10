@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" href="build\images\flavicon.cf36054c.png" type="image">
+        <link rel="icon" href="{{ asset('build/images/flavicon.png') }}" type="image">
         <title>
             {% block title %}Projet 3 Name{% endblock %}
         </title>
@@ -13,17 +13,18 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
+        
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </head>
   
     <body>
-      <header>
-    {% include "components/_navbar.html.twig" %}
-    </header>
-        {% block body %} {% endblock %}
-   {% include "components/_footer.html.twig" %}
+      {% include "components/_navbar.html.twig" %}
+      <main>
+          {% block body %} {% endblock %}
+      </main>
+      {% include "components/_footer.html.twig" %}
     </body>
 </html>

@@ -5,18 +5,33 @@
 * {
     text-decoration: none;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     font-family: 'Roboto', sans-serif;
     background-color: #061828;
+    height: 100vh;
     color: #7B17A6;
+}
+
+main {
+    margin-top: 7rem;
 }
 
 nav, footer {
     font-family: 'Roboto', sans-serif;
     background-color: #7B17A6;
     color: #13DCF2;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 h1 {
@@ -26,6 +41,7 @@ h1 {
     text-shadow: 0 0 5px #13DCF2, 0 0 10px #13DCF2, 0 0 15px #13DCF2, 0 0 20px #13DCF2, 
     0 0 30px #13DCF2, 0 0 40px #13DCF2, 0 0 55px #13DCF2, 0 0 75px #13DCF2;
     text-align: center;
+    font-size: 8rem;
 }
 
 h2, h3, h4, h5, h6 {
@@ -51,6 +67,7 @@ p {
 .neonpurple {
     text-shadow: 0 0 5px #7B17A6, 0 0 10px #7B17A6, 0 0 15px #7B17A6, 0 0 20px #7B17A6, 
     0 0 30px #7B17A6, 0 0 40px #7B17A6, 0 0 55px #7B17A6, 0 0 75px #7B17A6;
+    color: #7B17A6;
 }
 
 .cadreblue {
@@ -64,6 +81,7 @@ p {
     box-shadow: 0px 0px 25px 10px rgba(123, 23, 166, 0.82), inset 0px 0px 25px 5px rgba(123, 23, 166, 0.82);
     border: solid 3px rgba(123, 23, 166, 0.82);
     border-radius: 50px;
+    padding: 1rem 2rem;
 }
 
 .gamecardodd {
@@ -125,35 +143,44 @@ p {
 /* NAVBAR*/
 nav {
     height: 6.5em;
-    justify-content: center;
-}
-
-.containerNavbar {
     display:flex;
     justify-content: space-around;
-    padding-top: none;
+    gap: 1rem;
+    
 }
 
-a{
-    margin-top: 2rem;
-    font-family: 'Tilt Neon', sans-serif; 
-    color: rgba(19,220,242,1);
-    font-weight: 100;
+nav img {
+    height: 12rem;
+    position: absolute;
+}
 
+nav a{
+    color: rgba(19,220,242,1);
     font-size: 2rem;
-} 
+    align-self: center;
+}
 
 /*FOOTER*/
-footer {  
+footer { 
+    padding: 0.8rem;
     display: flex;
     justify-content: space-around;
 }
+
+.reseau-sociaux {
+    display: flex;
+    justify-content: space-around;
+}
+
+.reseau-sociaux img {
+    width: 2rem;
+    filter: drop-shadow(rgba(19,220,242,1) 0px 0px 10px);
+}
+
 
 footer a {
    color: #13DCF2;
    display: flex;
    justify-content: center;
-   margin-top: 0;
+   font-size: 1.5rem;
 }
-
-

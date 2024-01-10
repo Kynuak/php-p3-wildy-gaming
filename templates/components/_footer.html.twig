@@ -1,12 +1,16 @@
-<footer>
-   <div class="footer_left neonblue" >
+<footer class="neonblue">
+   <div class="" >
  
-    <a href="">Mentions légales</a>
-    <a href="">Réseaux Sociaux</a>
-      </div>     
-   <div class= "footer_right neonblue">
-    <a href="">Adresse</a>
-    <a href="">Contactez nous</a>
-    </div>
-     
+      <a class="" href="{{ path('/mention-legale')}}">Mentions légales</a>
+      <div class="reseau-sociaux ">
+         <a href=""><img  src="{{ asset("build/images/Icones/Icone_Instagram.svg") }}" alt="instagram"></a>
+         
+         <a href=""><img class="twitter" src="{{ asset("build/images/Icones/Icone_Twitter X.svg") }}" alt="twitter"></a>
+         <a href=""><img src="{{ asset("build/images/Icones/Icone_Facebook.svg") }}" alt="facebook"></a>
+      </div>
+   </div>     
+   <div class= "">
+      <a href="">Inscription</a>
+      <a href="{{ path('/contactez-nous') }}">Contactez nous</a>
+   </div>
 </footer>

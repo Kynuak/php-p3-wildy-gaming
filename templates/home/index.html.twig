@@ -3,21 +3,53 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h1>Mentions légales</h1>
-    <div class="gamecardodd">
-        <div class="gamecard">
-            <div class="gamepreview">
-                <img src="build/images/tetris.png" alt="tetris">
-                <h3>Tetris</h3>
+    <h1>Accueil</h1>
+    <section class="home-game">
+
+        <a href="#">
+            <article class="home-card-game cadreblue">
+                <div class="card-game-top">
+                    <img src="{{ asset('build/images/tetris.png') }}">
+                </div>
+                <div class="card-game-body">
+                    <h3>Tetris</h3>
+                    <div class="card-game-text">
+                        <h4>Catégorie : Puzzle</h4>
+                        <h4>Description :</h4>
+                        <p>Range des formes afin de créer un maximum de lignes pour gagner des points.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+
+        <a href="">
+            <article class="home-card-game cadreblue ">
+                <div class="card-game-top">
+                    <img src="{{ asset('build/images/tetris.png') }}">
+                </div>
+                <div class="card-game-body">
+                    <h3>Tetris</h3>
+                    <div class="card-game-text">
+                        <h4>Catégorie : Puzzle</h4>
+                        <h4>Description :</h4>
+                        <p>Range des formes afin de créer un maximum de lignes pour gagner des points.</p>
+                    </div>
+                </div>
+            </article>
+        </a>
+    </section>
+
+    <section class="home-podium">
+        <h2 class="">Ce sont les meilleurs !</h2>
+            <div class="podium">
+                <div class="podium-name">
+                    <h4 class="second-place">Steph_UwU</h4>
+                    <h3 class="first-place">xXxBaptisteLeBossxXx</h3>
+                    <h4 class="third-place">DarkSajid</h4>
+                </div>
+                <div class="podium-image">
+                    <img src="{{ asset('build/images/podium.png') }}">
+                </div>
             </div>
-            <p class=""> Catégorie : Puzzle <br /> Description : <br />
-            Range des formes afin de créer un maximum de lignes pour gagner des points.</p>
-            <div class="gamepodium">
-                <img src="build/images/podium.png" alt="podium">
-                <h5 class="firstpodium">XxBaptisteLeBossXx</h5>
-                <h5 class="secondpodium">Steph_UwU</h5>
-                <h5 class="thirdpodium">DarkSajid</h5>
-            </div>
-        </div>
-    </div>
+    </section>
 {% endblock %}
