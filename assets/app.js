@@ -4,15 +4,12 @@
  * We recommend including the built version of this JavaScript file
  * (and its CSS file) in your base layout (base.html.twig).
  */
-
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.scss';
-
 // start the Stimulus application
 import './bootstrap';
-
 import './js/home/script';
-
-import './js/game/pacman';
-
-import'./js/game/modernizr-1.5.min';
+import './js/game/pacman/script';
+import './js/game/modermizr-1.5.min/script';
+import './js/lots/script';
+import './js/game/space_invender/script';

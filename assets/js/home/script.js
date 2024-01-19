@@ -1,6 +1,6 @@
 // Hover Card game
 
-const cardGames = document.querySelectorAll(".home-card-game");
+const cardGames = document.querySelectorAll(".hover-cadre-neon");
 
 
 

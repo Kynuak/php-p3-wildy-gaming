@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lots{% endblock %}
+
+{% block body %}
+    <h1>Les Lots</h1>
+
+    <section class="container">
+
+        {% set sliceScore = {
+            'slice1':{'min':67, 'max':910},
+            'slice2':{'min':911, 'max':2009},
+            'slice3':{'min':2010, 'max':4037},
+            'slice4':{'min':4038, 'max':10000},
+            'slice5':{'min':10001, 'max':100000},
+        }%}
+
+        {% for slice,limit in sliceScore %}
+        <a href="#" role="button" data-target="#modal{{ loop.index }}" data-toggle="modal">
+            <article class="cadreblue article-lots">
+                    <div class="palier">
+                        {% for lot in lots %}
+                            {% if lot.price >= limit.min and lot.price <= limit.max %}
+                                <img class="img-lot" src="/uploads/lot/{{ lot.image }}" alt="{{ lot.title }}"/>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <h2 class="h2-lot">Lots à gagner pour des points compris entre {{ limit.min }} et {{ limit.max }}:</h2>
+                        {% for lot in lots %}
+                            {% if lot.price >= limit.min and lot.price <= limit.max %}
+                                <p class="p-lot">{{ lot.title }}</p>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+            </article>
+        </a>
+        {% if loop.last != sliceScore|length %}
+            <hr class="lots-separator-card">
+        {% endif %}
+        {% endfor %}
+        {% for slice,limit in sliceScore %}
+        <div class="modal" id="modal{{ loop.index }}" role="dialog">
+            <div class="modal-content">
+                <div class="modal-close" data-dismiss="dialog">x</div>
+                <div class="modal-body">
+                    {% for lot in lots %}
+                        {% if lot.price >= limit.min and lot.price <= limit.max %}
+                            <img class="img-lot" src="/uploads/lot/{{ lot.image }}" alt="{{ lot.title }}"/>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+                <div class="modal-footer">
+                    <h2 class="h2-lot">Lots à gagner pour des points compris entre {{ limit.min }} et {{ limit.max }}:</h2>
+                    {% for lot in lots %}
+                        {% if lot.price >= limit.min and lot.price <= limit.max %}
+                            <p class="p-lot">{{ lot.title }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    <p class="p-modal">Lot à retirer en boutique et récupérable une seule fois.
+                        Possibilité d'échange de lot entre les joueurs.</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+
+    <section class="cadrepurple conditions">
+        <p class="p-lot">CGU:</p><p class="p-lot">Un seul lot récupérable par palier, </br>une seule fois par joueur.
+            </br>Chaque lot est à retirer en boutique et est interdit à la vente.</p>
+        <p class="p-lot">Sans obligation de participation.</br>En cas de problème, veuillez nous contacter.</br>
+        Produit échangeable entre joueur mais non remboursable.</p>
+    </section>
+{% endblock %}

@@ -1,7 +1,8 @@
-<nav class="navbar neonblue">     
+<nav class="navbar neonblue">
     <a class="accueil" href="{{ path('home') }}">Accueil</a>
-    <a  class="jeux" href="">Jeux</a>
+    <a  class="jeux" href="{{ path('games') }}">Jeux</a>
     <img class="logo" src="{{ asset("build/images/Logo.svg") }}"  width= "200rem">
-    <a class="lot" href="">Lots</a>
-    <a class="connexion" href="">Connexion</a>
+    <a class="lot" href="{{ path('Lots_index') }}">Lots</a>
+    <a class="connexion" href="{{ path('app_login') }}">Connexion</a>
 </nav>
+

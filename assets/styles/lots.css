@@ -1,0 +1,134 @@
+
+.container img {
+    display: flex;
+    width: 8rem;
+    height: 8rem;
+}
+
+.container {
+    margin-top: 4rem;
+}
+
+.article-lots {
+    display: flex;
+    margin: 1rem 10rem 2rem 10rem;
+    align-items: center;
+}
+
+.palier {
+    display: grid;
+    grid-auto-flow: row;
+    margin-left: 3rem;
+}
+
+.palier img:nth-child(2n+1) {
+    grid-row: 1;
+}
+
+.h2-lot {
+    margin: 0 0 .5rem 5rem;
+}
+
+.p-lot {
+    font-size: 1.1rem;
+    margin-left: 5rem;
+}
+
+.img-lot {
+    margin: .4rem;
+}
+
+.conditions {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 4rem 3rem 4rem;
+}
+
+hr.lots-separator-card {
+    margin: 5rem auto;
+    width: 30rem;
+    box-shadow: 0px 0px 25px 10px rgba(123, 23, 166, 0.82), inset 0px 0px 25px 5px rgba(123, 23, 166, 0.82);
+    border: solid 1px rgba(123, 23, 166, 0.82);
+}
+
+/* MODALE */
+
+.modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    padding: 2rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: .2s;
+}
+
+.modal.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #061828;
+    max-width: 70vw;
+    margin: auto;
+    flex: 1;
+    position: relative;
+    border: 2px solid #13DCF2;
+    border-radius: 1rem;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.3rem;
+    right: .7rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: space-between;
+    zoom: 200%;
+    max-height: 80vh;
+    overflow-x: auto;
+    margin: .5rem .3rem 0 .3rem;
+}
+
+.modal-body::-webkit-scrollbar {
+    width: 10rem;
+    height: .3rem;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: #0B2740;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background-color: #C729F2;
+    border-radius: 20px;
+}
+
+.modal-footer {
+    text-align: center;
+    zoom: 130%;
+    padding: 1rem;
+}
+
+.modal-footer .p-lot {
+    margin-left: 0;
+}
+
+.modal-footer h2 {
+    margin-left: 0;
+}
+
+.p-modal {
+    font-size: 1rem;
+    padding-top: 1rem;
+}

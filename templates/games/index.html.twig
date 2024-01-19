@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Jeux{% endblock %}
+
+{% block body %}
+    <h1>Jeux</h1>
+    <section class="games-section">
+        {% for game in games %}
+            <a href="">
+                <article class="games-card-game {% if loop.index0 is even %} card-game-describe-left {% else %} card-game-describe-right {% endif %} cadreblue hover-cadre-neon">
+                    <div class="card-game-describe">
+                        <div class="card-game-preview">
+                            <img src="{{ asset('build/images/tetris.png') }}" alt="tetris">
+                                                  
+                        </div>
+                        <div class="card-game-description">
+                            <h2>{{ game.name }}</h2> 
+                            <h3>Catégorie : {{ game.category.name }}</h3>
+                            <h3>Description :</h3>
+                            <p>{{ game.description }}</p>
+                        </div>
+                    </div>
+                    
+                        <div class="game-podium">
+                            {% if plays[loop.index0] is not empty %}
+                                <div class="game-podium-name">
+                                        {% for key, play in plays[loop.index0] %}
+                                            {% if key == 0 %}
+                                                <h3 class="first-place">{{ play.user.username }}</h3>
+                                            {% elseif key == 1 %}
+                                                <h4 class="second-place">{{ play.user.username }}</h4>
+                                            {% elseif key == 2 %}
+                                                <h4 class="third-place">{{ play.user.username }}</h4>
+                                            {% endif %}
+                                        {% endfor %}
+                                </div>
+                                <div class="game-podium-image">
+                                    <img src="{{ asset('build/images/podium.png') }}">
+                                </div>
+                            {% else %}
+                                <h2>Aucun joueur à jouer à ce jeu !</h2>
+                            {% endif %}
+                        </div>
+                </article>
+            </a>
+            {% if loop.last != games|length %}
+                <hr class="games-separator-card">
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endblock %}
