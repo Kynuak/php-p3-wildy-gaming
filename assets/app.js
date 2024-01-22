@@ -5,11 +5,10 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.scss';
+import './styles/app.css';
 // start the Stimulus application
 import './bootstrap';
 import './js/home/script';
-import './js/game/pacman/script';
-import './js/game/modermizr-1.5.min/script';
+import './js/game/pacman';
 import './js/lots/script';
-import './js/game/space_invender/script';
+import './js/game/space_invender';

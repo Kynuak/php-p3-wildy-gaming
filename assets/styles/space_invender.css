@@ -1,16 +1,16 @@
-body{
+.body-space-invender{
     margin:0;
     padding:0;
     background:rgb(0, 0, 0);
     width:100%;
-    text-align:center
+    text-align:center;
     
 }
 #gameBoard{
-    width:80%;
-    height:80vh;
+    width:70%;
+    height:52vh;
     position:absolute;            
     top: 50%;                        
     transform: translate(-50%, -50%) ;
-    border:2px dotted white
+    border:2px dotted white;
 }

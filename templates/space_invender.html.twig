@@ -1,13 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block title %}Mon Space Invender{% endblock %}
 {% block body %}
-
-   {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/space_invender.css') }}">
-{% endblock %}   
-    <canvas id="gameBoard" ></canvas>
-{% block javascripts %}
-    <script src="{{ asset("app.js") }}"type="module" ></script>
-{% endblock %}
+<section class="body-space-invender">
+   <canvas id="gameBoard" ></canvas>
+   </section>
 {% endblock %}
  

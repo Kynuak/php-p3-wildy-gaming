@@ -19,7 +19,7 @@ class Player{
             y:0 // Vitesse de déplacement sur l'axe des Y
         }
         const image= new Image();
-        image.src = './space.png';
+        image.src = require('../../images/Icones/space.png');
         image.onload =()=>{
             this.image = image;
             this.width=48; // Largeur du vaisseau
@@ -69,7 +69,7 @@ class Alien{
     constructor({position}){
         this.velocity={x:0, y:0 }
         const image= new Image();
-        image.src = './ghost.png';
+        image.src = require('../../images/Icones/ghost.png');
         image.onload =()=>{
             this.image = image;
             this.width=32;
