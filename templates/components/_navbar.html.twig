@@ -5,7 +5,7 @@
     <a class="lot" href="{{ path('Lots_index') }}">Lots</a>
     {% if app.user %}
         <div class="container-link-profil">        
-            <a class="connexion" href="">Mon Profil</a>
+            <a class="connexion" href="{{ path('user_profil') }}">Mon Profil</a>
             <a class="connexion" href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     {% else %}

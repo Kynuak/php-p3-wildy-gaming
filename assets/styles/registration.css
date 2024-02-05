@@ -1,0 +1,41 @@
+.container-fomr-register {
+    width: 70%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-register {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-agree-terms {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem;
+    align-items: center;
+    width: 15rem;
+}
+
+.form-agree-terms input {
+    margin: auto 0;
+    width: unset;
+}
+
+.input-birthdate-register {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.7rem;
+}
+
+.input-birthdate-register select {
+    color: rgba(123, 23, 166, 0.82);
+    background-color: #061828 ;
+    border-radius: 50px;
+    box-shadow: 0px 0px 7px 2.5px rgba(123, 23, 166, 0.82);
+    border: solid 3px rgba(123, 23, 166, 0.82);
+}

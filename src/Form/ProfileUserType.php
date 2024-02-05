@@ -18,15 +18,15 @@ class ProfileUserType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'attr' => ['placeholder' => 'Firstname', 'class' => 'monprofil'],
+                'attr' => ['placeholder' => 'Prénom', 'class' => 'monprofil'],
                 'label' => false
             ])
             ->add('lastname', TextType::class, [
-                'attr' => ['placeholder' => 'Lastame', 'class' => 'monprofil'],
+                'attr' => ['placeholder' => 'Nom', 'class' => 'monprofil'],
                 'label' => false
             ])
             ->add('username', TextType::class, [
-                'attr' => ['placeholder' => 'username', 'class' => 'monprofil'],
+                'attr' => ['placeholder' => 'Pseudo', 'class' => 'monprofil'],
                 'label' => false
             ])
             ->add('birthdate', DateType::class, [

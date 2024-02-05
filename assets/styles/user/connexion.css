@@ -14,6 +14,7 @@ input {
     width: 15rem;
     margin-top: 0.6rem;
     background-color: #061828;
+    padding: 0.2rem 0.5rem;
 }
 
 input, select, textarea {
@@ -38,6 +39,8 @@ button {
     margin-top: 2rem;
     background-color: #061828;
     font-weight: bold;
+    padding: 0.2rem;
+    cursor: pointer;
 }
 
 button:hover {
@@ -51,4 +54,9 @@ button:hover {
     justify-content: center;
     margin: auto;
     margin-top: 5rem;
+}
+
+.container-form-login {
+    width: 60%;
+    margin: 2rem auto;
 }
