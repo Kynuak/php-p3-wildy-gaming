@@ -21,13 +21,22 @@ class GameFixture extends Fixture implements DependentFixtureInterface
             Bien que le concept tire son origine du jeu vidéo d'arcade Blockade, 
             il n'existe pas de version standard. 
             Son concept simple l'a amené à être porté sur l'ensemble des plates-formes 
-            de jeu existantes sous des noms de clone."
+            de jeu existantes sous des noms de clone.",
+            "image" => "snake.png"
         ],
         [
             "name" => "Planet Defense",
             "category" => "Shoot'em up",
             "description" => "Jeu de tir spatial, le vaisseau doit défendre la planète contre
-            des astéroïdes."
+            des astéroïdes.",
+            "image" => "planet-defense.png"
+        ],
+        [
+            "name" => "Pac-man",
+            "category" => "Arcade",
+            "description" => "Pac-Man (パックマン, Pakkuman?) est une série de jeux vidéo créée par Tōru Iwatani et 
+            éditée par Namco. Elle a débuté en 1980 avec le jeu éponyme.",
+            "image" => "pac-man.png"
         ],
         [
             "name" => "Tétris",
@@ -41,38 +50,16 @@ class GameFixture extends Fixture implements DependentFixtureInterface
             Le déroulement précis du développement et des premières commercialisations est encore 
             débattu dans les années 2010. 
             Après une exploitation importante par Nintendo, les droits appartiennent depuis 1996 à la 
-            société The Tetris Company."
-        ],
-        [
-            "name" => "Pac-man",
-            "category" => "Arcade",
-            "description" => "Pac-Man (パックマン, Pakkuman?) est une série de jeux vidéo créée par Tōru Iwatani et 
-            éditée par Namco. Elle a débuté en 1980 avec le jeu éponyme."
+            société The Tetris Company.",
+            "image" => ""
         ],
         [
             "name" => "Space Invader",
             "category" => "Shoot'em up",
             "description" => "Invader est un artiste de rue et mosaïste français, né en France en 1969. 
             Il installe depuis 1996 une série de Space Invaders, réalisés en mosaïques, sur 
-            les murs de grandes métropoles internationales."
-        ],
-        [
-            "name" => "Tic-Tac-Toe",
-            "category" => "Réflexion",
-            "description" => "Le tic-tac-toe, aussi appelé « morpion » (par analogie avec le jeu de morpion) 
-            et « oxo » en Belgique, est un jeu de réflexion 
-            se pratiquant à deux joueurs, tour par tour, dont le but est de créer le premier un alignement. 
-            Le jeu se joue généralement en dessinant sur papier au crayon."
-        ],
-        [
-            "name" => "Jeu de paires",
-            "category" => "Réflexion",
-            "description" => "Le jeu se compose de paires de cartes portant des illustrations identiques. 
-            L'ensemble des cartes est mélangé, puis étalé face contre table. À son tour, chaque joueur 
-            retourne deux cartes de son choix. 
-            S'il découvre deux cartes identiques, il les ramasse et les conserve, ce qui lui permet de rejouer. 
-            Si les cartes ne sont pas identiques, 
-            il les retourne faces cachées à leur emplacement de départ."
+            les murs de grandes métropoles internationales.",
+            "image" => ""
         ],
 
     ];
@@ -87,6 +74,7 @@ class GameFixture extends Fixture implements DependentFixtureInterface
         foreach (self::GAMES as $key => $gameValue) {
             $game = new Game();
             $game->setName($gameValue["name"]);
+            $game->setImage($gameValue['image']);
             $slug = $this->slugger->slug($gameValue["name"]);
             $game->setSlug(strtolower($slug));
             $game->setDescription($gameValue["description"]);
