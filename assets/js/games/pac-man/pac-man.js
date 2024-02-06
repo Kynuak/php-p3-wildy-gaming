@@ -426,7 +426,7 @@ Pacman.User = function (game, map) {
             block === Pacman.BISCUIT || block === Pacman.PILL) {
             
             map.setBlock(nextWhole, Pacman.EMPTY);           
-            addScore((block === Pacman.BISCUIT) ? 10 : 50);
+            addScore((block === Pacman.BISCUIT) ? 1 : 2);
             eaten += 1;
             
             if (eaten === 182) {
@@ -933,7 +933,7 @@ var PACMAN = (function () {
                     audio.play("eatghost");
                     ghosts[i].eat();
                     eatenCount += 1;
-                    nScore = eatenCount * 50;
+                    nScore = eatenCount * 1;
                     drawScore(nScore, ghostPos[i]);
                     user.addScore(nScore);                    
                     setState(EATEN_PAUSE);

@@ -52,6 +52,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $queryBuilder->getQuery()->getResult();
     }
 
+    public function maxScorinPlayer($user): ?array
+    {
+        $queryBuilder = $this->createQueryBuilder('user')
+        ->select('user.username', 'MAX(play.score) AS ScoreMax')
+        ->innerJoin('user.plays', 'play')
+        ->innerJoin('play.game', 'game')
+        ->where('user.username = :username')
+        ->setParameter('username', $user->getUsername())
+        ->groupby('user.username', "game.id")
+        ->orderby('user.username', "DESC");
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
 //    /**
 //     * @return User[] Returns an array of User objects
 //     */

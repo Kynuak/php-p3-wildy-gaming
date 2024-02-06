@@ -136,3 +136,20 @@ hr.lots-separator-card {
     font-size: 1rem;
     padding-top: 1rem;
 }
+
+/* Lot Gagné */ 
+
+.container-lot-win {
+    margin: 2rem auto;
+}
+
+.lot-win {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+}
+
+.container-btn-redirect {
+    display: flex;
+    justify-content: space-around;
+}

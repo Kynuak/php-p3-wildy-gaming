@@ -8,11 +8,11 @@
     <section class="container">
 
         {% set sliceScore = {
-            'slice1':{'min':50, 'max':149},
-            'slice2':{'min':150, 'max':249},
-            'slice3':{'min':250, 'max':349},
-            'slice4':{'min':350, 'max':449},
-            'slice5':{'min':450, 'max':500},
+            'slice1':{'min':50, 'max':249},
+            'slice2':{'min':250, 'max':449},
+            'slice3':{'min':450, 'max':649},
+            'slice4':{'min':650, 'max':849},
+            'slice5':{'min':850, 'max':1000},
         }%}
 
         {% for slice,limit in sliceScore %}
@@ -57,6 +57,20 @@
                             <p class="p-lot">{{ lot.title }}</p>
                         {% endif %}
                     {% endfor %}
+                    {% if sumMaxPlayer is not empty %}                        
+                        {% if sumMaxPlayer.scoreMax >= limit.min  %}
+                                {% if limit.min not in lotsAcquired %}
+                                    {{ form_start(formLots) }}
+                                        {{ form_widget(formLots.price, {'attr': {'value': limit.min }}) }}
+                                        <button class="inputneonpurple" type="submit">Récupérer mon Lot</button>
+                                    {{ form_end(formLots) }}
+                                {% else %}
+                                    <h3>Vous avez déjà récupéré le lot !</h2>
+                                {% endif %}
+                            {% else %}
+                                <h3>Vous n'avez pas atteint ce palier !</h3>
+                        {% endif %}  
+                    {% endif %}  
                     <p class="p-modal">Lot à retirer en boutique et récupérable une seule fois.
                         Possibilité d'échange de lot entre les joueurs.</p>
                 </div>
