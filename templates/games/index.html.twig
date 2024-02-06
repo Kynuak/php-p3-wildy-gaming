@@ -10,8 +10,13 @@
                 <article class="games-card-game {% if loop.index0 is even %} card-game-describe-left {% else %} card-game-describe-right {% endif %} cadreblue hover-cadre-neon">
                     <div class="card-game-describe">
                         <div class="card-game-preview">
-                            <img src="{{ asset('build/images/tetris.png') }}" alt="tetris">
-                                                  
+                            <img src=
+                                {% if game.image is not empty %}
+                                    "{{ asset('build/images/games/'~ game.image) }}" 
+                                {% else %}
+                                    "{{ asset('build/images/games/tetris.png') }}" 
+                                {% endif %}
+                                alt="{{ game.name }}">         
                         </div>
                         <div class="card-game-description">
                             <h2>{{ game.name }}</h2> 
@@ -20,27 +25,26 @@
                             <p>{{ game.description }}</p>
                         </div>
                     </div>
-                    
-                        <div class="game-podium">
-                            {% if plays[loop.index0] is not empty %}
-                                <div class="game-podium-name">
-                                        {% for key, play in plays[loop.index0] %}
-                                            {% if key == 0 %}
-                                                <h3 class="first-place">{{ play.user.username }}</h3>
-                                            {% elseif key == 1 %}
-                                                <h4 class="second-place">{{ play.user.username }}</h4>
-                                            {% elseif key == 2 %}
-                                                <h4 class="third-place">{{ play.user.username }}</h4>
-                                            {% endif %}
-                                        {% endfor %}
-                                </div>
-                                <div class="game-podium-image">
-                                    <img src="{{ asset('build/images/podium.png') }}">
-                                </div>
-                            {% else %}
-                                <h2>Aucun joueur à jouer à ce jeu !</h2>
-                            {% endif %}
-                        </div>
+                    <div class="game-podium">
+                        {% if plays[loop.index0] is not empty %}
+                            <div class="game-podium-name">
+                                    {% for key, play in plays[loop.index0] %}
+                                        {% if key == 0 %}
+                                            <h3 class="first-place">{{ play.user.username }}</h3>
+                                        {% elseif key == 1 %}
+                                            <h4 class="second-place">{{ play.user.username }}</h4>
+                                        {% elseif key == 2 %}
+                                            <h4 class="third-place">{{ play.user.username }}</h4>
+                                        {% endif %}
+                                    {% endfor %}
+                            </div>
+                            <div class="game-podium-image">
+                                <img src="{{ asset('build/images/podium.png') }}">
+                            </div>
+                        {% else %}
+                            <h2>Aucun joueur à jouer à ce jeu !</h2>
+                        {% endif %}
+                    </div>
                 </article>
             </a>
             {% if loop.last != games|length %}

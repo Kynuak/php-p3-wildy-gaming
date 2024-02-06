@@ -14,7 +14,7 @@ class PlayFixtures extends Fixture implements DependentFixtureInterface
         for ($i = 0; $i <= 100; $i++) {
             $play = new Play();
 
-            $play->setGame($this->getReference('game_' . rand(0, 6)));
+            $play->setGame($this->getReference('game_' . rand(0, 4)));
             $play->setUser($this->getReference("user_" . rand(1, 50)));
             $play->setScore(rand(1, 50));
             $manager->persist($play);

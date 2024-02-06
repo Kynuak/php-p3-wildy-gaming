@@ -5,45 +5,34 @@
 {% block body %}
     <h1>Accueil</h1>
     <section class="home-game">
-
-        <a href="#">
-            <article class="home-card-game cadreblue hover-cadre-neon">
-                <div class="card-game-top">
-                    <img src="{{ asset('build/images/tetris.png') }}">
-                </div>
-                <div class="card-game-body">
-                    <h3>Tetris</h3>
-                    <div class="card-game-text">
-                        <h4>Catégorie : Puzzle</h4>
-                        <h4>Description :</h4>
-                        <p>Range des formes afin de créer un maximum de lignes pour gagner des points.</p>
+        {% for lastGame in lastGames %}
+            <a href="{{ path('games_show', { gameSlug: lastGame.slug }) }}">
+                <article class="home-card-game cadreblue hover-cadre-neon">
+                    <div class="card-game-top">
+                        <img src=
+                            {% if lastGame.image is not empty %}
+                                "{{ asset('build/images/games/'~ lastGame.image) }}" 
+                            {% else %}
+                                "{{ asset('build/images/games/tetris.png') }}" 
+                            {% endif %}
+                        alt="{{ lastGame.name }}">  
                     </div>
-                </div>
-            </article>
-        </a>
-
-        <a href="">
-            <article class="home-card-game cadreblue hover-cadre-neon">
-                <div class="card-game-top">
-                    <img src="{{ asset('build/images/tetris.png') }}">
-                </div>
-                <div class="card-game-body">
-                    <h3>Tetris</h3>
-                    <div class="card-game-text">
-                        <h4>Catégorie : Puzzle</h4>
-                        <h4>Description :</h4>
-                        <p>Range des formes afin de créer un maximum de lignes pour gagner des points.</p>
+                    <div class="card-game-body">
+                        <h3>{{ lastGame.name }}</h3>
+                        <div class="card-game-text">
+                            <h4>Catégorie : {{ lastGame.category.name }}</h4>
+                        </div>
                     </div>
-                </div>
-            </article>
-        </a>
+                </article>
+            </a>
+        {% endfor %}
     </section>
 
     <section class="home-podium">
         <h2 class="">Ce sont les meilleurs !</h2>
             <div class="podium">
                 <div class="podium-name">
-                    {% for key, bestPlayer in bestPlayers|slice(0, 3) %}
+                    {% for key, bestPlayer in arrayUsersScoring|slice(0, 3) %}
                         {% if key == 0 %}
                             <h3 class="first-place">{{ bestPlayer.username }}</h3>
                         {% elseif key == 1 %}
@@ -67,7 +56,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for bestPlayer in bestPlayers|slice(0, 10) %}
+                        {% for bestPlayer in arrayUsersScoring|slice(0, 10) %}
                             <tr>
                                 <td>
                                     <p class="{% if app.user is not empty and bestPlayer.username == app.user.username %} user-connected-score {% endif %}">
@@ -83,7 +72,7 @@
                                     </p>
                                 </td>
                                 <td><p class="{% if app.user is not empty and bestPlayer.username == app.user.username  %} user-connected-score {% endif %}">{{ bestPlayer.username }}</p></td>
-                                <td><p class="{% if app.user is not empty and bestPlayer.username == app.user.username %} user-connected-score {% endif %}">{{ bestPlayer.totalScorePlayer }}</p></td>
+                                <td><p class="{% if app.user is not empty and bestPlayer.username == app.user.username %} user-connected-score {% endif %}">{{ bestPlayer.score }}</p></td>
                             </tr>                            
                         {% endfor %}
                     </tbody>
