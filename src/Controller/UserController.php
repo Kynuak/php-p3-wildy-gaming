@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\ProfileUserType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Attribute\MapEntity;
@@ -16,16 +17,22 @@ use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInt
 class UserController extends AbstractController
 {
     #[Route('/profil', name:'user_profil')]
-    public function index(Request $request, EntityManagerInterface $entityManager): Response
-    {
+    public function index(
+        Request $request,
+        EntityManagerInterface $entityManager,
+    ): Response {
         $user = $this->getUser();
         $form =  $this->createForm(ProfileUserType::class, $user);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
         }
+
+        $lotsUser = $this->getUser()->getLots();
+
         return $this->render('/mon_profil.html.twig', [
-        "form" => $form
+            "form" => $form,
+            "lotsUser" => $lotsUser
         ]);
     }
 

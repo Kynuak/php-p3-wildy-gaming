@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Lots{% endblock %}
+
+{% block body %}
+    <h1>Bravo vous avez obtenu !</h1>
+    <section class="container-lot-win">
+        <article class="lot-win cadreblue hover-cadre-neon">
+            <div class="card-game-top">
+                <img class="img-lot" src="/uploads/lot/{{ lotWin.image }}" alt="{{ lotWin.title }}"/>
+            </div>
+            <div class="card-game-body">
+                <h3>{{ lotWin.title }}</h3>
+            </div>
+        </article>
+    <div class="container-btn-redirect">
+        <a href="{{ path('games_index') }}"><button class="inputneonpurple">Continuer à jouer</button></a>
+        <a href="{{ path('Lots_index') }}"><button class="inputneonpurple">Retouner aux lots</button></a>
+    </div>
+    <section>
+{% endblock %}
