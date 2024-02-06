@@ -5,6 +5,10 @@
 {% block body %}
     <h1>Les Lots</h1>
 
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="btn-redirect-admin-lot" href="{{ path('admin_lots_index') }}"><button class="inputneonpurple">Editer les lots</button></a>
+        {% endif %}
+    
     <section class="container">
 
         {% set sliceScore = {

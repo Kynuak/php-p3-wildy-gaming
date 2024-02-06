@@ -5,6 +5,16 @@
     height: 8rem;
 }
 
+.btn-redirect-admin-lot {
+    margin: 0 auto;
+}
+
+.btn-redirect-admin-lot>button {
+    font-size: 1.5rem;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
 .container {
     margin-top: 4rem;
 }
