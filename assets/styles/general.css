@@ -100,7 +100,13 @@ nav a{
     color: rgba(19,220,242,1);
     font-size: 2rem;
     align-self: center;
+    transition: all 0.2s;
 }
+
+nav a:hover{
+    scale: 1.3;
+}
+
 nav .container-link-profil {
     display: flex;
     flex-direction: column;
