@@ -65,8 +65,7 @@
                         {% if sumMaxPlayer.scoreMax >= limit.min  %}
                                 {% if limit.min not in lotsAcquired %}
                                     {{ form_start(formLots) }}
-                                        {{ form_widget(formLots.price, {'attr': {'value': limit.min }}) }}
-                                        <button class="inputneonpurple" type="submit">Récupérer mon Lot</button>
+                                        <button name="price" class="inputneonpurple" type="submit" value="{{ limit.min }}">Récupérer mon Lot</button>
                                     {{ form_end(formLots) }}
                                 {% else %}
                                     <h3>Vous avez déjà récupéré le lot !</h2>
