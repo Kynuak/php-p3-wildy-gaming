@@ -43,7 +43,6 @@ class GamesController extends AbstractController
     ): Response {
 
         $plays = $playRepository->maxPlays($game);
-        dump($plays);
         return $this->render('games/show.html.twig', [
             'game' => $game,
             "plays" => $plays
