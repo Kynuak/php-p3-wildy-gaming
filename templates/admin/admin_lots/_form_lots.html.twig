@@ -1,0 +1,8 @@
+{{ form_start(formNewLots, {"attr": {"class": "form-admin-lots"}}) }}
+
+    {{ form_row(formNewLots.title) }}
+    {{ form_row(formNewLots.price) }}
+    {{ form_widget(formNewLots.imageFile) }}
+
+    <button type="submit" class="inputneonpurple" >{{ button_label|default('Ajouter un nouveau lot') }}</button>
+{{ form_end(formNewLots) }}

@@ -43,13 +43,13 @@ class LotsController extends AbstractController
             }
 
             if ($formLots->isSubmitted() && $formLots->isValid()) {
-                $priceLot = $formLots->getData()['price'];
-
+                $priceLot = (integer)($request->request->get('price'));
+                
                 $lotsPalier = $lotsRepository->findBy(['price' => $priceLot]);
-                $lotsWin = $lotsPalier[rand(0, count($lotsPalier) - 1)];
+                $lotsWin = $lotsPalier[array_rand($lotsPalier)];
                 $lotAcquired = false;
                 foreach ($this->getUser()->getLots() as $lot) {
-                    if ($lot->getPrice() == $priceLot) {
+                    if ($lot->getPrice() === $priceLot) {
                         $lotAcquired = true;
                     }
                 }
@@ -58,8 +58,7 @@ class LotsController extends AbstractController
                     $this->getUser()->addLot($lotsWin);
                     $entityManager->flush();
                 }
-
-
+                
                 return $this->render('lots/win.html.twig', [
                     'lotWin' => $lotsWin,
                 ]);
