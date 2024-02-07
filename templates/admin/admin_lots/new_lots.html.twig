@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lots{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un lot</h1>
+    <section class="container-form-edit-new-lot cadreblue">
+    
+        {{ include('admin/admin_lots/_form_lots.html.twig') }}
+
+    </section>
+{% endblock %}

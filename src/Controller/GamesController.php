@@ -42,7 +42,7 @@ class GamesController extends AbstractController
         PlayRepository $playRepository,
     ): Response {
 
-        $plays = $playRepository->findBy(["game" => $game->getId()], ["score" => "DESC"]);
+        $plays = $playRepository->maxPlays($game);
 
         return $this->render('games/show.html.twig', [
             'game' => $game,

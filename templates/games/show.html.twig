@@ -32,7 +32,7 @@
                         {% for play in plays|slice(0, 10) %}
                             <tr>
                                 <td>
-                                    <p class="{% if play.user == app.user %} user-connected-score {% endif %}">
+                                    <p class="{% if play.username == app.user.username %} user-connected-score {% endif %}">
                                         {% if loop.index == 1 %}
                                             {{ loop.index }}ST
                                         {% elseif loop.index == 2 %}
@@ -44,8 +44,8 @@
                                         {% endif %}
                                     </p>
                                 </td>
-                                <td><p class="{% if play.user == app.user %} user-connected-score {% endif %}">{{ play.user.username }}</p></td>
-                                <td><p class="{% if play.user == app.user %} user-connected-score {% endif %}">{{ play.score }}</p></td>
+                                <td><p class="{% if play.username == app.user.username %} user-connected-score {% endif %}">{{ play.username }}</p></td>
+                                <td><p class="{% if play.username == app.user.username %} user-connected-score {% endif %}">{{ play.ScoreMax }}</p></td>
                             </tr>                            
                         {% endfor %}
                     </tbody>
@@ -56,11 +56,11 @@
                     <div class="game-podium-name">
                             {% for key, bestUser in plays|slice(0, 3) %}
                                 {% if key == 0 %}
-                                    <h3 class="first-place">{{ bestUser.user.username }}</h3>
+                                    <h3 class="first-place">{{ bestUser.username }}</h3>
                                 {% elseif key == 1 %}
-                                    <h4 class="second-place">{{ bestUser.user.username }}</h4>
+                                    <h4 class="second-place">{{ bestUser.username }}</h4>
                                 {% elseif key == 2 %}
-                                    <h4 class="third-place">{{ bestUser.user.username }}</h4>
+                                    <h4 class="third-place">{{ bestUser.username }}</h4>
                                 {% endif %}
                             {% endfor %}
                     </div>

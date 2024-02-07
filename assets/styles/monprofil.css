@@ -94,12 +94,14 @@
 .container-lots-user {
     width: 80%;
     margin: 2rem auto;
-    display: grid;
+    display: flex;
+    gap: 4rem;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .card-lot-user {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 1fr auto;
     width: 15rem;
 }

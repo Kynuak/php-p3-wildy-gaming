@@ -21,4 +21,18 @@ class PlayRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Play::class);
     }
+
+
+    public function maxPlays(Game $game)
+    {
+        $queryBuilder = $this->createQueryBuilder('play')
+        ->select('user.username', 'MAX(play.score) AS ScoreMax')
+        ->innerJoin('play.user', 'user')
+        ->where('play.game = :game')
+        ->setParameter('game', $game->getId())
+        ->groupBy('user.username')
+        ->orderBy('ScoreMax', 'DESC');
+
+        return $queryBuilder->getQuery()->getResult();
+    }
 }

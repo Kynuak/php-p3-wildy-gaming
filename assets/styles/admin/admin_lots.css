@@ -1,0 +1,87 @@
+.section-admin-lots {
+    width: 60%;
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-admin-lots table {
+    width: 90%;
+    margin: 3rem auto;
+    text-align: center;
+}
+
+.new-lot-admin button {
+    width: 100%;
+    padding: 0.5rem 2rem;
+    font-size: 1.5rem;
+}
+
+.section-admin-lots table tbody td {
+    background-color: a;
+    padding: 1rem;
+}
+
+.table-edit form {
+    text-align: center;
+    margin: unset;
+    width: 100%;
+}
+
+.table-edit a button, .table-edit form button {
+    text-align: center;
+    margin: unset;
+}
+
+/* Editer Admin Lots */
+
+.container-form-edit-new-lot {
+    width: 70%;
+    margin: 2rem auto;
+}
+
+.form-admin-lots {
+    width: 50%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-admin-lots>div {
+    margin: 0.5rem 0;
+}
+
+.form-admin-lots select {
+    color: rgba(123, 23, 166, 0.82);
+    background-color: #061828 ;
+    border-radius: 50px;
+    box-shadow: 0px 0px 7px 2.5px rgba(123, 23, 166, 0.82);
+    border: solid 3px rgba(123, 23, 166, 0.82);
+    width: 5rem;
+}
+
+.form-admin-lots .vich-file{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0;
+}
+
+.form-admin-lots .vich-file>div>input {
+    width: unset;
+    margin: 0.5rem;
+    justify-content: center;
+}
+
+.form-admin-lots .vich-file a {
+    text-decoration: none;
+    color: rgba(123, 23, 166, 0.82);
+}
+
+.form-admin-lots button {
+    font-size: 1.2rem;
+    width: 60%;
+}
