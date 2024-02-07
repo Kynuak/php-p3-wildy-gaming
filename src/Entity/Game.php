@@ -26,13 +26,17 @@ class Game
     private ?string $image = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $path = null;
+    private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'game', targetEntity: Play::class)]
     private Collection $plays;
 
     #[ORM\Column(nullable: true)]
     private ?bool $isAvailable = null;
+
+    #[ORM\ManyToOne(inversedBy: 'games')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
 
     public function __construct()
     {
@@ -80,14 +84,14 @@ class Game
         return $this;
     }
 
-    public function getPath(): ?string
+    public function getSlug(): ?string
     {
-        return $this->path;
+        return $this->slug;
     }
 
-    public function setPath(string $path): static
+    public function setSlug(string $slug): static
     {
-        $this->path = $path;
+        $this->slug = $slug;
 
         return $this;
     }
@@ -130,6 +134,18 @@ class Game
     public function setIsAvailable(?bool $isAvailable): static
     {
         $this->isAvailable = $isAvailable;
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): static
+    {
+        $this->category = $category;
 
         return $this;
     }

@@ -1,0 +1,21 @@
+.contactname input, .contactemail input, .contactpropo input, .monprofil input {
+  width: 15rem;
+  margin-top: 0.6rem;
+  background-color: #061828;
+  border-radius: 50px;
+  box-shadow: 0px 0px 7px 2.5px rgba(123, 23, 166, 0.82);
+  border: solid 3px rgba(123, 23, 166, 0.82);
+}
+
+.contactemail, .contactname, .contactpropo {
+  margin: auto;
+}
+
+.contacte {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.carte {
+  margin-top: 2rem;
+}

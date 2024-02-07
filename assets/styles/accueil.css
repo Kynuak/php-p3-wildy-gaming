@@ -1,9 +1,8 @@
-section.home-game{
+section.home-game {
     display: flex;
     justify-content: space-around;
     margin-top: 5rem;
 }
-
 
 section.home-podium {
     display: flex;
@@ -14,7 +13,6 @@ section.home-podium {
 article.home-card-game {
     display: flex;
     flex-direction: column;
-
     width: 25rem;
 }
 
@@ -43,14 +41,14 @@ article.home-card-game {
 
 .card-game-text p {
     font-size: 1.2rem;
+    color: rgba(123, 23, 166, 0.82)
 }
 
 section.home-podium {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 8rem 0;
-    
+    margin-top: 8rem;   
 }
 
 section.home-podium h2 {
@@ -64,8 +62,7 @@ section.home-podium h2 {
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin: 3rem;
-    
+    margin: 3rem;   
 }
 
 .podium-name {
@@ -74,9 +71,7 @@ section.home-podium h2 {
 }
 
 .podium-name > h4, .podium-name > h3 {
-    position: absolute;
-    
-    
+    position: absolute;   
 }
 
 .podium-name .second-place {
@@ -90,9 +85,7 @@ section.home-podium h2 {
 .podium-name .first-place {
     top: -25%;
     font-size: 2.5rem;      
-    translate: -50%;
-
-    
+    translate: -50%;  
 }
 
 .podium-name .third-place {
@@ -106,4 +99,15 @@ section.home-podium h2 {
 
 .podium-image img {
     width: 25rem;
+}
+
+.home-score-best-players {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    text-align: center;
+}
+
+table.home-score-player td {
+   padding: 0 2rem;
 }

@@ -1,0 +1,77 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ game.name }} {% endblock %}
+
+{% block body %}
+
+    <h1>{{ game.name }}</h1>
+
+    <section class="details-game">
+        <div class="play-game">
+            <canvas class="{{ game.slug }}" id="{{ game.slug }}"></canvas>
+        </div>
+    
+        <div class="game-describe cadreblue">
+            <div class="container-game-description">
+                <h2>Catégorie : {{ game.category.name }}</h2>
+                <h2>Description du jeu</h2>
+                <p>{{ game.description }}</p>
+            
+            </div>
+            <div class="container-score-player">
+                <h2>Score des joueurs</h2>
+                <table class="score-player">
+                    <thead>
+                        <tr>
+                            <th><h3>Rang</h3></th>
+                            <th><h3>Pseudo</h3></th>
+                            <th><h3>Score</h3></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for play in plays|slice(0, 10) %}
+                            <tr>
+                                <td>
+                                    <p class="{% if play.user == app.user %} user-connected-score {% endif %}">
+                                        {% if loop.index == 1 %}
+                                            {{ loop.index }}ST
+                                        {% elseif loop.index == 2 %}
+                                            {{ loop.index }}ND
+                                        {% elseif loop.index == 3 %}
+                                            {{ loop.index }}RD
+                                        {% else %}
+                                            {{ loop.index }}TH
+                                        {% endif %}
+                                    </p>
+                                </td>
+                                <td><p class="{% if play.user == app.user %} user-connected-score {% endif %}">{{ play.user.username }}</p></td>
+                                <td><p class="{% if play.user == app.user %} user-connected-score {% endif %}">{{ play.score }}</p></td>
+                            </tr>                            
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="game-podium">
+                {% if plays is not empty %}
+                    <div class="game-podium-name">
+                            {% for key, bestUser in plays|slice(0, 3) %}
+                                {% if key == 0 %}
+                                    <h3 class="first-place">{{ bestUser.user.username }}</h3>
+                                {% elseif key == 1 %}
+                                    <h4 class="second-place">{{ bestUser.user.username }}</h4>
+                                {% elseif key == 2 %}
+                                    <h4 class="third-place">{{ bestUser.user.username }}</h4>
+                                {% endif %}
+                            {% endfor %}
+                    </div>
+                    <div class="game-podium-image">
+                        <img src="{{ asset('build/images/podium.png') }}">
+                    </div>
+                {% else %}
+                    <h2>Aucun joueur à jouer à ce jeu !</h2>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

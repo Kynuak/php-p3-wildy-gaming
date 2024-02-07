@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <h1>Connexion</h1>
+    <section class="container-form-login cadreblue">
+        <form method="post">
+            <div class="connexion">
+                <input type="email" placeholder="Email" value="{{ last_username }}" name="email" id="email" class="inputneonpurple" autocomplete="off" required autofocus>
+                <input type="password" placeholder="Mot de passe" name="password" id="inputPassword" class="inputneonpurple" autocomplete="off" required>
+                <input type="hidden" name="_csrf_token"
+                    value="{{ csrf_token('authenticate') }}">
+                <button class="inputneonpurple" type="submit">Connexion</button>
+            </div>
+        </form>
+            <a class="redirectbutton" href="{{ path('app_register') }}"><button class="inputneonpurple">Pas encore membre ? Inscris toi !</button></a>
+    </section>
+{% endblock %}

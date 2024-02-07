@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block title %}Username{% endblock %}
+{% block body %}
+    <h1> Mon profil</h1>
+
+    <section class="container-profil-user cadreblue">
+    
+        <h2 class="h2-profil">Modifier mes informations</h2>
+        <div class="username">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+                <div class="monprofil">    
+                    {{ form_row(form.firstname)}}
+                </div>
+                <div class="monprofil">  
+                    {{ form_row(form.lastname) }}
+                </div>
+                <div class="monprofil">  
+                    {{ form_row(form.birthdate)}}
+                </div>
+                <div class="monprofil">
+                    {{ form_row(form.username)}}
+                </div> 
+                <div class="monprofil">
+                    {{ form_row(form.email) }}
+                </div>
+                <div class="monprofiltype">
+                            <button type="submit" class="inputneonpurple">Valider</button>
+                </div>
+            {{ form_end(form) }}
+        </div>
+        <form method="POST" action="{{ path('user_delete', {idUser:app.user.id})}}"> 
+        <div class="buttondelete">
+            <input type="hidden" name="_token" value="{{csrf_token(app.user.id)}}"><button type="submit" class="inputneonpurple"  > supprimer le compte</button>
+        </div>
+    </section>
+
+    <section class="section-lots-user">
+        <h2 class="h2-profil">Mes lots</h2>
+        <div class="container-lots-user">
+            {% for lotUser in lotsUser %}
+                <article class="card-lot-user cadreblue hover-cadre-neon">
+                    <div class="card-game-top">
+                        <img class="img-lot" src="/uploads/lot/{{ lotUser.image }}" alt="{{ lotUser.title }}"/>
+                    </div>
+                    <div class="card-game-body">
+                        <h3>{{ lotUser.title }}</h3>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}                  

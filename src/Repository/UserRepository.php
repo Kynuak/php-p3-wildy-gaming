@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Play;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,6 +38,32 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newHashedPassword);
         $this->getEntityManager()->persist($user);
         $this->getEntityManager()->flush();
+    }
+
+    public function maxScoringGamesPlayer(): ?array
+    {
+        $queryBuilder = $this->createQueryBuilder('user')
+        ->select('user.username', 'MAX(play.score) AS ScoreMax')
+        ->innerJoin('user.plays', 'play')
+        ->innerJoin('play.game', 'game')
+        ->groupby('user.username', "game.id")
+        ->orderby('user.username', "DESC");
+
+        return $queryBuilder->getQuery()->getResult();
+    }
+
+    public function maxScorinPlayer($user): ?array
+    {
+        $queryBuilder = $this->createQueryBuilder('user')
+        ->select('user.username', 'MAX(play.score) AS ScoreMax')
+        ->innerJoin('user.plays', 'play')
+        ->innerJoin('play.game', 'game')
+        ->where('user.username = :username')
+        ->setParameter('username', $user->getUsername())
+        ->groupby('user.username', "game.id")
+        ->orderby('user.username', "DESC");
+
+        return $queryBuilder->getQuery()->getResult();
     }
 
 //    /**

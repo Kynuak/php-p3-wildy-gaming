@@ -1,0 +1,46 @@
+.details-game {
+    margin: 5rem auto 0;
+    width: 80%;
+}
+
+.game-describe {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 5rem;
+    padding: 3rem;
+}
+
+.game-describe .game-podium {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.container-game-description {
+    width: 30%;
+}
+
+.container-game-description h2 {
+    margin: 0.5rem 0;
+}
+
+.container-score-player {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-player {
+    width: 100%;
+    text-align: center;
+}
+
+.score-player tbody td {
+    padding: 0.2rem 0;
+}
+
+.user-connected-score {
+    color: #13DCF2;
+}

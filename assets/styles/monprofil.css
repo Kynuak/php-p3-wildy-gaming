@@ -1,0 +1,105 @@
+.container-profil-user {
+    width: 80%;
+    margin: 4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.h2-profil {
+    font-size: 3rem;
+}
+
+.container-profil-user h2 {
+    margin: 3rem 0;
+}
+
+.username {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.username .monprofil input {
+    justify-content: center;
+    position: relative;
+    margin: auto;
+}
+
+#profile_user_firstname, #profile_user_lastname, #profile_user_username, #profile_user_email  {
+    width: 100%;
+}
+
+.username select {
+    color: rgba(123, 23, 166, 0.82);
+    background-color: #061828 ;
+    border-radius: 50px;
+    box-shadow: 0px 0px 7px 2.5px rgba(123, 23, 166, 0.82);
+    border: solid 3px rgba(123, 23, 166, 0.82);
+}
+
+.birthdate {
+    justify-content: space-around;
+    display: flex;
+}
+
+.birthdate select {
+    width: auto;
+    margin: auto;
+}
+
+.monprofil {
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.monprofiltype {
+    display: flex;
+    justify-content: center;
+    border-radius: 13px;
+}
+
+.buttondelete {
+    display: flex;
+    justify-content: center;
+    border-radius: 13px;
+}
+
+.fav {
+    margin-top: 5rem;  
+}
+
+.fav-game1 {
+    display:flex;
+    grid-template-rows: 2fr 2fr 2fr ;
+    justify-content: space-between;
+}
+
+.fav-lot2 {
+    display: grid;
+    justify-content: space-between;
+    grid-template-rows: 2fr 2fr 2fr ;
+}
+
+/* section lots user */
+
+.section-lots-user {
+    width: 80%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-lots-user {
+    width: 80%;
+    margin: 2rem auto;
+    display: grid;
+    justify-content: center;
+}
+
+.card-lot-user {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+}
